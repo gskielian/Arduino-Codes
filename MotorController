@@ -1,0 +1,89 @@
+// Sweep
+// by BARRAGAN <http://barraganstudio.com> 
+// This example code is in the public domain.
+
+
+#include <Servo.h> 
+ 
+Servo LeftWheel;  // create servo object to control a servo 
+Servo RightWheel;  // create servo object to control a servo 
+
+                // a maximum of eight servo objects can be created 
+ 
+int pos = 0;    // variable to store the servo position 
+ 
+void setup() 
+{ 
+  LeftWheel.attach(9);  // attaches the servo on pin 9 to the servo object 
+  RightWheel.attach(11);  // attaches the servo on pin 9 to the servo object 
+
+} 
+ 
+ 
+void loop() 
+{ 
+  
+     Move(90,3000);
+     Move(-90,2000);
+     Rotate(30,1000);
+   // Rotate(90,1200);
+    
+ //   Stop(400);
+  
+} 
+
+
+
+
+
+//my solar system 
+//forces and motion
+//static electricity and hockey pucks
+//http://www.periodicvideos.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//is there a way to post student's code online?
+void Move(int level, int duration)
+{   
+   level = level + 90;
+    LeftWheel.write(level);              // tell servo to go to position in variable 'pos'  
+    RightWheel.write(-level);    
+    delay(duration);     
+    // tell servo to go to position in variable 'pos' 
+}
+void Rotate(int level, int duration)
+{
+   level = level + 90;
+    LeftWheel.write(level);              // tell servo to go to position in variable 'pos'  
+    RightWheel.write(level);    
+    delay(duration);     
+}
+
+void Stop(int duration)
+{
+  LeftWheel.detach();
+  RightWheel.detach();
+  delay(duration);
+}
