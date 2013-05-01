@@ -36,35 +36,10 @@ void loop()
 
 
 
-//my solar system 
-//forces and motion
-//static electricity and hockey pucks
-//http://www.periodicvideos.com/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//is there a way to post student's code online?
 void Move(int level, int duration)
 {   
    level = level + 90;
