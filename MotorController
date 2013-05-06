@@ -1,6 +1,7 @@
-// initial program Sweep
+// This code is based on a program called "Sweep"
 // by BARRAGAN <http://barraganstudio.com> 
-// which is an example placed in the public domain found under the example menu of the Arduino IDE.
+// (which is an example placed in the public domain found under the example menu of the Arduino IDE)
+// and we also utilize the Servo.h Library
 
 //Creative commons license for my modifications
 //
@@ -15,7 +16,7 @@
 Servo LeftWheel;  // create servo object to control a servo 
 Servo RightWheel;  // create servo object to control a servo 
 
-// a maximum of eight servo objects can be created 
+// Note: a maximum of eight servo objects can be created 
 
 int LWPin = 9; //set the pin number for your left servo-motors (just change the number if not pin 9)
 int RWPin = 10; //right-wheel control pin
@@ -71,8 +72,6 @@ void Forward(int speed)
 
 
 
-
-
 void Backward (int speed)
 {
     attachServos(); //in case we disconnected them
@@ -92,6 +91,7 @@ void Rotate (int speed)
     LeftWheel.write(speed);             
     RightWheel.write(speed); // Right wheel is backwards    
 }
+
 
 void Stop()
 {
