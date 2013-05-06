@@ -8,7 +8,7 @@
 //I created additional functions created for handling continuous-rotation-servos as motors
 //Forward, Backward, Stop, Stop, and attachServo
 //by Gregory Kielian  < www.kielian.net > 
-//Many thanks to Chris Newton for his mentoring and debugging the first drafts
+//Many thanks to Chris Newton for his mentoring and help debugging the first drafts
 
 
 #include <Servo.h> 
