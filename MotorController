@@ -1,6 +1,13 @@
-// Sweep
+// initial program Sweep
 // by BARRAGAN <http://barraganstudio.com> 
-// This example code is in the public domain.
+// which was an example in the public domain.
+
+//Creative commons license for my modifications
+//
+//I created additional functions created for handling continuous-rotation-servos as motors
+//Forward, Backward, Stop, Stop, and attachServo
+//by Gregory Kielian  < www.kielian.net > 
+//Many thanks to Chris Newton for his mentoring and debugging the first drafts
 
 
 #include <Servo.h> 
@@ -10,7 +17,7 @@ Servo RightWheel;  // create servo object to control a servo
 
 // a maximum of eight servo objects can be created 
 
-int WPin = 9; //set the pin number for your left servo-motors (just change the number if not pin 9)
+int LWPin = 9; //set the pin number for your left servo-motors (just change the number if not pin 9)
 int RWPin = 10; //right-wheel control pin
 
 
