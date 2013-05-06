@@ -14,7 +14,7 @@ int pos = 0;    // variable to store the servo position
  
 void setup() 
 { 
-  LeftWheel.attach(9);  // attaches the servo on pin 9 to the servo object 
+  LeftWheel.attach(9);  //  
   RightWheel.attach(11);  // attaches the servo on pin 9 to the servo object 
 
 } 
@@ -22,14 +22,14 @@ void setup()
  
 void loop() 
 { 
-  
-     Move(90,3000);
-     Move(-90,2000);
-     Rotate(30,1000);
-   // Rotate(90,1200);
-    
- //   Stop(400);
-  
+     Rotate(30);
+     delay(2000);
+
+     Forward(100);
+     delay(3000);
+
+     Stop();
+     delay(4000);
 } 
 
 
@@ -40,25 +40,41 @@ void loop()
 
 
 
-void Move(int level, int duration)
-{   
-   level = level + 90;
-    LeftWheel.write(level);              // tell servo to go to position in variable 'pos'  
-    RightWheel.write(-level);    
-    delay(duration);     
-    // tell servo to go to position in variable 'pos' 
-}
-void Rotate(int level, int duration)
+void Forward(int speed)
 {
-   level = level + 90;
-    LeftWheel.write(level);              // tell servo to go to position in variable 'pos'  
-    RightWheel.write(level);    
-    delay(duration);     
+    attachServos(); //in case we disconnected them
+     
+    speed = (int) (speed/100.0*90.0 + 90) ;  // translates it to servo-speak (servo input is from 0-180)
+    LeftWheel.write(speed);             
+    RightWheel.write(-speed); // Right wheel is backwards    
 }
 
-void Stop(int duration)
+void Backward (int speed)
+{
+    attachServos(); //in case we disconnected them
+     
+    speed = (int) (speed/100.0*90.0 + 90) ;  // translates it to servo-speak (servo input is from 0-180)
+    LeftWheel.write(-speed);             
+    RightWheel.write(speed); // Right wheel is backwards    
+}
+
+void Rotate (int speed)
+{
+    attachServos(); //in case we disconnected them
+     
+    speed = (int) (speed/100.0*90.0 + 90) ;  // translates it to servo-speak (servo input is from 0-180)
+    LeftWheel.write(speed);             
+    RightWheel.write(speed); // Right wheel is backwards    
+}
+
+void Stop()
 {
   LeftWheel.detach();
   RightWheel.detach();
-  delay(duration);
+}
+
+void attachServos();
+{
+   LeftWheel.attach
+
 }
