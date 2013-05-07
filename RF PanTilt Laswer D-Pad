@@ -1,0 +1,78 @@
+// Controlling a servo position using a potentiometer (variable resistor) 
+// by Michal Rinott <http://people.interaction-ivrea.it/m.rinott> 
+
+#include <Servo.h> 
+ 
+Servo PanServo;  // create servo object to control a servo 
+Servo TiltServo;  // create servo object to control a servo 
+
+boolean D1 = LOW;
+boolean D2 = LOW;
+boolean D3 = LOW;
+boolean D4 = LOW;
+// analog pin used to connect the potentiometer
+int PanVal = 90;   // variable to read the value from the analog pin 
+int TiltVal = 90;
+
+int secretValue = 0;
+void setup() 
+{ 
+  pinMode(3, OUTPUT);
+  PanServo.attach(6);  // attaches the servo on pin 9 to the servo object 
+  TiltServo.attach(9);  // attaches the servo on pin 9 to the servo object 
+  pinMode(10, INPUT);
+  pinMode(11, INPUT);
+  pinMode(12, INPUT);
+  pinMode(13, INPUT);
+  PanServo.write(90);
+  TiltServo.write(90);
+  delay(1000); 
+} 
+ 
+void loop() 
+{ 
+
+D1 = digitalRead(10);
+D2 = digitalRead(11);
+D3 = digitalRead(12);
+D4 = digitalRead(13);              // reads the value of the potentiometer (value between 0 and 1023) 
+
+
+secretValue=0;
+if (D1 == HIGH) {
+  PanVal -= 5;
+  PanServo.write(PanVal);
+
+  secretValue =1;
+}
+
+if (D4 == HIGH) {
+   PanVal += 5;
+  PanServo.write(PanVal);
+  if(secretValue ==1) 
+  { 
+    digitalWrite(3, HIGH);
+  }
+  else{
+    secretValue=0;
+  }
+}
+if (D3 == HIGH) {
+  TiltVal -= 5;
+  TiltServo.write(TiltVal);
+  secretValue =2;
+}
+if (D2 == HIGH) {
+  TiltVal += 5;
+  TiltServo.write(TiltVal);
+  if(secretValue ==2) 
+  {
+    digitalWrite(3,LOW);
+  }
+  else{
+    secretValue=0;
+  }
+}
+
+delay(100);
+}
