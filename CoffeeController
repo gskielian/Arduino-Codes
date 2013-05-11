@@ -1,0 +1,36 @@
+void setup() { 
+  Serial.begin(9600);
+
+   pinMode(2, OUTPUT);
+   pinMode(3, OUTPUT);
+   pinMode(4, OUTPUT);
+   pinMode(5, OUTPUT);
+
+   digitalWrite(2, HIGH);
+   digitalWrite(3, HIGH);
+   digitalWrite(4, HIGH);
+   digitalWrite(5, HIGH);
+   
+}
+
+void doBlink(int port) {
+   digitalWrite(port, LOW);
+   delay(500);
+  digitalWrite(port, HIGH); 
+}
+
+void loop() {
+   char in = Serial.read();
+   if (in == '1') {
+      doBlink(2);
+   } 
+   if (in == '2') {
+      doBlink(3); 
+   }
+   if (in == '3') {
+      doBlink(4); 
+   }
+   if (in == '4') {
+      doBlink(5);
+   }
+}
