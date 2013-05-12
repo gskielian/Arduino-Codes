@@ -1,0 +1,89 @@
+#include <Ultrasonic/Ultrasonic.h>
+
+#define trigPin 7
+#define echoPin 8
+int maxamount = 15;
+int minamount = 0;
+long distance, duration;
+
+void setup() { 
+  Serial.begin(9600);
+
+   pinMode(2, OUTPUT);
+   pinMode(3, OUTPUT);
+   pinMode(4, OUTPUT);
+   pinMode(5, OUTPUT);
+   pinMode(6, OUTPUT);
+   pinMode(7, OUTPUT);
+   pinMode(8, INPUT);
+   pinMode(9, OUTPUT);
+   
+   digitalWrite(2, LOW);
+   digitalWrite(3, HIGH);
+   digitalWrite(4, HIGH);
+   digitalWrite(5, HIGH);
+   digitalWrite(6, HIGH);
+   digitalWrite(7, LOW);
+   digitalWrite(8, LOW);
+   digitalWrite(9, LOW);
+   delay(7000);
+   digitalWrite(9,HIGH);
+ }
+   void doblink2(int port) {
+     digitalWrite(port, HIGH);
+     delay(500);
+    digitalWrite(port,LOW);
+   }
+
+void doBlink(int port) {
+   digitalWrite(port, LOW);
+   delay(500);
+  digitalWrite(port, HIGH); 
+}
+
+void loop() {
+  proxim();
+   char in = Serial.read();
+   if (in == '1') {
+      doblink2(2);
+   } 
+   if (in == '2') {
+      doBlink(3); 
+   }
+   if (in == '3') {
+      doBlink(4); 
+   }
+   if (in == '4') {
+      doBlink(5);
+   }
+   if (in == '5') {
+      doBlink(6);
+   }
+
+}
+
+void proxim() {
+  
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(3);
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(10);
+  duration = pulseIn(echoPin, HIGH);
+    Serial.print("\n duration:");      
+
+    Serial.print(duration);      
+
+  distance = duration/58.2;
+    Serial.print(" distance: ");      
+
+    Serial.print(distance);      
+  if(distance <= maxamount && distance >= minamount) {
+  Serial.print("works!");
+  
+  digitalWrite(2, HIGH);
+  }
+
+}  
+    
