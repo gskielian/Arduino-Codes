@@ -105,7 +105,7 @@ void Stop()
 
 
 
-void attachServos();
+void attachServos()
 {
    LeftWheel.attach(LWPin);
    RightWheel.attach(RWPin);
