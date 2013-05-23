@@ -21,7 +21,9 @@ Servo RightWheel;  // create servo object to control a servo
 int LWPin = 10; //set the pin number for your left servo-motors (just change the number if not pin 9)
 int RWPin = 6; //right-wheel control pin
 int AlarmPin = 13;//
-int PIRPin = 2;
+int PIRPin = 7;  // changed from pin number 2
+
+int 
 
 
 void setup() 
