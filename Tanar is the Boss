@@ -1,0 +1,4 @@
+LeftWheel.attach( LWPin );  //  Connects LeftWheel to the pin LWPin
+  RightWheel.attach( RWPin );  // Connects another wheel to be controlled by the pin RWPin
+  pinMode(AlarmPin, OUTPUT);
+  pinMode(PIRPin, INPUT);
