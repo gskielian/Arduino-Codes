@@ -1,0 +1,24 @@
+
+void setup()
+{
+pinMode(9, INPUT);
+pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+int RFSignal = digitalRead(9);
+
+if (RFSignal == HIGH)
+  {  
+    digitalWrite(13,HIGH);
+  }
+  else
+  {
+  digitalWrite(13, LOW);
+  }
+  
+  delay(100);
+
+
+}
