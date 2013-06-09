@@ -27,9 +27,11 @@ void loop() {
     Serial.println("the soil is too dry it will start watering");
    digitalWrite(13,LOW); 
   }
-  
+  else
+  {
   Serial.println(voltage);
-digitalWrite(13,HIGH);
+  digitalWrite(13,HIGH);
+  }
 delay(1000);
 
 
