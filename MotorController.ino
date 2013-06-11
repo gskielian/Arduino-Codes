@@ -19,7 +19,7 @@ Servo RightWheel;  // create servo object to control a servo
 // Note: a maximum of eight servo objects can be created 
 
 int LWPin = 9; //set the pin number for your left servo-motors (just change the number if not pin 9)
-int RWPin = 10; //right-wheel control pin
+int RWPin = 6; //right-wheel control pin
 
 
 
